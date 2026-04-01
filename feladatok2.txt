@@ -1,0 +1,55 @@
+1.feladat:
+
+class Kutya { ... }; --> Osztály Olga
+Kutya k("Rex"); --> Példányosító Pál
+Kutya(string n) { nev=n; } --> Konstruktor Kristóf
+~Kutya() { delete adat; } --> Destruktor Dezső
+class Kutya : public Allat --> Öröklődő Olivér
+virtual void hangotAd() = 0; --> Absztrakt Anikó
+void f() override { ... } --> Interfész István
+private: int egyenleg; --> Bezáró Bence
+Allat* a = new Kutya();
+a->hangotAd(); // futáskor dől el --> Early Binding Eddie
+
+2.feladat:
+
+class Auto { public: std::string marka; int* ev; // konstruktor (inicializálja marka-t és foglalja le az ev-et heap-en): Auto(std::string m)  { marka = m; ev = new int(2024); } // destruktor (szabadítsa fel ev-et): ~Auto() { delete ev; } };
+
+
+class BankSzamla { int egyenleg = 0; // Belülről látszik, kívülről nem → private: int hitelkeret = 50000; // Leszármazott is látja, kívülső nem → protected: void befizet(int x); // Mindenki hívhatja → public };
+
+
+Allat* allatok[] = { new Kutya(), new Macska(), new Kutya() }; for (auto* a : allatok) a->hangotAd(); // Kimenetek sorban: Vau , Miau , Vau
+
+3.feladat
+
+X = absztrakt    mert: van egy pure virtual függvénye
+
+Y = interfész    mert: nincs implementáció
+
+4.feladat
+
+Kutya k; k.ugat(); (ugat nem virtual) --> Early
+Allat* a = new Kutya(); a->hangotAd(); (virtual) --> Late
+osszeAdd<int>(3,4); (template) --> Early
+Függvény overloading (f(int) vs f(double)) --> Early
+virtual void f() = 0; leszármazotton hívva --> Late
+
+5.feladat	
+
+class Karakter {
+protected:
+    string nev;
+    int eletero;
+
+public:
+    virtual void mozog();
+    virtual void tamad() = 0;
+    void allapot();
+
+protected:
+    virtual void serul(int sebzes);
+
+private:
+    void logolas();
+};
