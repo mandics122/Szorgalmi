@@ -1,0 +1,2 @@
+#include<bits/stdc++.h>
+using namespace std;int main(){string s,t="";getline(cin,s);for(char c:s)if(isalpha(c))t+=tolower(c);int p=1;for(int i=0,j=t.size()-1;i<j;i++,j--)p&=t[i]==t[j];cout<<(p?"1\n":"0\n");int n;cin>>n;vector<int>a(n);for(int&i:a)cin>>i;sort(a.begin(),a.end());for(int i:a)cout<<i<<" ";}
