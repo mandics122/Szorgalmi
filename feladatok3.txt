@@ -1,0 +1,45 @@
+1. feladat:
+
+\x -> x * 2 --> Lambda Lali
+f . g  (pont operátor) --> Függvényösszetétel Fanni
+add 5  (csak egy param, visszaad fnv-t) --> Curry Csaba
+map f xs, filter p xs --> Higher-Order Hugó
+foldl (+) 0 [1,2,3] --> Fold Frida
+f [] = 0    f (x:xs) = ... --> Rekurzív Rita
+take 10 [1..]  (végtelen lista) --> Lusta László
+Ugyanarra a bemenetre mindig ugyanaz az eredmény --> Tiszta Tivadar
+A kifejezés értéke nem függ helyétől a kódban --> Hivatkozási Hanna
+Az érték, amiből már nem lehet tovább redukálni --> Normál Forma Norbert
+
+2.feladat:
+
+a) Végezd el a β-redukciókat lépésről lépésre, amíg el nem érsz a normál formáig!
+(\x -> x + x) 5 -- 1. lépés (β): x+x -- 2. lépés: összeg*5 -- Normál forma: (x+x)*5
+
+b) Mi a normál forma? Vagy nincs?
+(a) 2 + 3 * 4 → normál forma: 14 
+(b) map (*2) [1,2] → normál forma: [2,4]
+(c) let x = x in x → normál forma: Nincs (indok: Végtelen rekurzió)
+
+3.feladat:
+
+A: szorzat [] = 1 szorzat (x:xs) = x * szorzat xs --> Tail
+B: szorzatT [] acc = acc szorzatT (x:xs) acc = szorzatT xs (x * acc) --> Tail
+
+
+4.feladat:
+
+a) Curry: mi lesz az eredmény?
+add x y = x + y add3 = add 3 -- típusa: int add3 7 -- → 10 map (add 10) [1,2,3] -- → [11,12,13]
+
+b) Függvényösszetétel: mi lesz a definíció és az eredmény?
+duplaPlusz1 = (+1) . (*2) duplaPlusz1 4 -- lépések: 4 *2 = 8 , +1 = 9 → eredmény: 9 
+Írj egy függvényt, ami: (1) megszorozza 3-mal, (2) kivon belőle 1-et, (3) négyzetre emeli kombinalt = Sajat = 1 --> 1 (*3)=3, 3-1=2, 2^2=4  kombinalt 5 -- → 196
+
+
+5.feladat
+
+take 5 [1..] — végtelen lista első 5 eleme → Mindkettő
+sum [1..100] — véges lista összege	→ Mohó
+Fibonacci sorozat végtelen listája	→ Lusta
+Ha egy függvény argumentumát soha nem használjuk fel	→	Lusta
